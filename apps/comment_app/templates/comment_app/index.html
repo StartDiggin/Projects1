@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Comment Home Page</title>
+  </head>
+  <body>
+    <h1>Hello, {{ user.first_name }}</h1>
+    <h2>Click here to view your comments:</h2>
+    <h2>Other users:</h2>
+    <table>
+        <tr>
+          <th>Name:</th>
+          <th># of comments:</th>
+        </tr>
+        {% for user in other_user %}
+        <tr>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.comments.count }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="/comment/add/{{ user.id }}">Add Comment</a> | <a href="/logout">Logout</a>
+
+
+  </body>
+</html>
